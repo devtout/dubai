@@ -1,5 +1,27 @@
 {% extends "base.html" %}
 {% load i18n static  staticfiles%}
+{% load thumbnail %}
+
+{% block slider %}
+    <div class="container">
+        <div class="sixteen columns">
+            <div class="flexslider">
+                <ul class="slides">
+                    {% for sld in slider %}
+                        {% thumbnail sld.foto "1000" as big %}
+                            <li>
+                                <a href="#"> <img src={{ MEDIA_URL }}{{ big }} alt=""> </a>
+                                <p class="flex-caption">
+                                    1Captions and cupcakes. Winning combination.
+                                </p>
+                            </li>
+                        {% endthumbnail %}
+                    {% endfor %}
+                </ul>
+            </div><!-- end flexi-->
+        </div><!-- end sixteen columns -->
+    </div><!-- end container -->
+{% endblock %}
 
 
 

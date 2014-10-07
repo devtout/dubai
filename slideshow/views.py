@@ -4,6 +4,7 @@ from django.template import RequestContext
 from models import SlideHome
 from dubai import settings
 
+
 def slide_home():
     return SlideHome.objects.all()
 

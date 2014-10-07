@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     #Pacotes de Terceiros
     'bootstrap_admin',
     'django.contrib.admin',
+    'sorl.thumbnail',
 
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
