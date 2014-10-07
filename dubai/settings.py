@@ -7,7 +7,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+     ('renan@e-tout.com.br', 'renan@e-tout.com.br'),
 )
 
 MANAGERS = ADMINS
@@ -118,11 +118,15 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
+
+    #Pacotes de Terceiros
+    'bootstrap_admin',
     'django.contrib.admin',
+
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'dubai',
+    'dubai_',
     'slideshow',
 )
 
