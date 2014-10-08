@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^$', 'dubai_.views.index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^contato/','contato.views.contato'),
+    url(r'^cadastro/','cadastro.views.cadastro'),
 )+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
 

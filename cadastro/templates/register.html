@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n static  staticfiles%}
+
+{% block slider %}
+    <div class="container add-bottom_2">
+        <div class="sixteen columns add-bottom">
+            <h1>Contato</h1>
+        </div>
+
+        <div class="sixteen columns ">
+            <div class=" sixteen columns alpha">
+                <div id="message-contact"></div>
+                <form method="post" action="assets/contact.php" id="contactform">
+                    <div class="one-third column ">
+                        <fieldset>
+                            <label>Nome</label>
+                            {{ form.nome }}
+                            <label> Email</label>
+                            {{ form.email }}
+                        </fieldset>
+                    </div>
+                    <div class="one-third column omega">
+                        <button type="submit" class="button" id="submit_contact">Enviar Mensagem</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

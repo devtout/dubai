@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n static  staticfiles%}
+
+{% block slider %}
+    <div class="container add-bottom_2">
+        <div class="sixteen columns add-bottom">
+            <h1>Cadastro<span>O seu cadastro será avaliado pelo o administrador.</span></h1>
+        </div>
+        <div class="sixteen columns ">
+            <div class=" sixteen columns alpha">
+                <form method="post" action="/cadastro/" id="contactform">
+                    <div class="one-third column alpha">
+                        <fieldset>
+                            <label>Nome Completo</label>
+                            {{ form.nome_completo }}
+                            <label>Identidade</label>
+                            {{ form.identidade }}
+                            <label>CPF</label>
+                            {{ form.cpf }}
+                        </fieldset>
+                    </div>
+                    <div class="one-third column ">
+                        <fieldset>
+                            <label>Email</label>
+                            {{ form.email }}
+                            <label>Telefone</label>
+                            {{ form.telefone }}
+                            <label>Status</label>
+                            {{ form.status_morador }}
+                        </fieldset>
+                    </div>
+                    <div class="one-third column omega">
+                        <label>Bloco</label>
+                        {{ form.bloco }}
+                        <label>Número</label>
+                        {{ form.numero }}
+                        <button type="submit" class="button" id="submit">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
