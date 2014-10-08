@@ -7,8 +7,8 @@ from django.db.models.fields.files import ImageField, FileField
 from django.contrib import admin
 from PIL import Image
 
-WIDTH = 720
-HEIGHT = 480
+WIDTH = 940
+HEIGHT = 375
 
 
 def upload_to_foto(instance, name):
@@ -23,6 +23,7 @@ class SlideHome(models.Model):
         verbose_name_plural = 'Home'
     data = models.DateTimeField(auto_now_add=True, editable=False)
     titulo = models.CharField(max_length=20,verbose_name='Título')
+    descricao = models.CharField(max_length=40,verbose_name='Descrição')
     foto = models.ImageField(upload_to=upload_to_foto)
 
 

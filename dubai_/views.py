@@ -8,5 +8,6 @@ from slideshow.views import slide_home
 def index(request):
     dados = {}
     dados['slider'] = slide_home()
+    print dados['slider']
     return render_to_response("index.html", dados,
                               context_instance=RequestContext(request))

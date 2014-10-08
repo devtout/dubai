@@ -1,185 +1,75 @@
-<!DOCTYPE html>
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-<head>
+{% extends "base.html" %}
+{% load i18n static  staticfiles%}
 
-<!-- Basic Page Needs -->
-<meta charset="utf-8">
-<title>Responsive Hotel  Site template</title>
-<meta name="description" content="Responsive Hotel  Site template">
-<meta name="author" content="">
+{% block slider %}
+    <div class="container add-bottom_2">
+        <div class="sixteen columns add-bottom">
+            <h1>Contato</h1>
+        </div>
 
-<!-- Mobile Specific Metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <div class="sixteen columns ">
+            <div class="map_canvas add-bottom" id="map" style="height:275px;width:100%;"></div><!-- end map-->
 
-<!-- CSS -->
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/menu.css">
-<link rel="stylesheet" href="css/skeleton.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="fontello/css/fontello.css">
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+            <div class="one-third column alpha half-bottom">
+                <h3 id="airport">From the airport</h3>
+                <ul class="list_4">
+                    <li>Vix in error iuvaret, at omnium prompta aliquam vel. Sea an purto vide posidonium, eos modus dicit ne. Appetere dignissim vis et. </li>
+                    <li>Appetere dignissim vis et. Te per dolore expetenda voluptaria, an eam autem perfecto patrioque. Eu eum inermis verterem assentior.</li>
+                </ul>
+            </div><!-- end airport one-third -->
 
-<!-- Favicons-->
-<link rel="shortcut icon" href="images/favicon.ico">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-    
-</head>
-<body>
-<header>
-<div class="container">
-	<div class=" four columns" id="logo"><a href="index.html">Paradise hotel</a></div>
-	<div class="twelve columns">
-		<ul id="lang">
-			<li>En</li>
-			<li><a href="#">Fr</a></li>
-			<li><a href="#">Es</a></li>
-		</ul>
-		<div id="wxWrap"><span id="wxIntro">Currently here</span><span id="wxIcon2"></span><span id="wxTemp"></span></div><!-- weather -->
-	</div>
-    <!-- start main nav -->
-	<div class="twelve columns">
-		<nav>
-		<ul id="main-nav" class="sf-menu">
-			<li><a href="#">Home</a>
-			<ul>
-				<li><a href="index.html">Home slider</a></li>
-				<li><a href="index_2.html">Home fullscreen</a></li>
-			</ul>
-			</li>
-			<li><a href="rooms.html">Rooms</a></li>
-			<li><a href="#">Pages</a>
-			<ul>
-				<li><a href="about.html">About</a></li>
-				<li><a href="fullscreen_gallery.html">Fullscreen gallery</a></li>
-				<li><a href="gallery_columns.html">Gallery grids</a></li>
-				<li><a href="rooms_2.html">Rooms 2</a></li>
-			</ul>
-			</li>
-			<li><a href="contacts.html">Contact us</a></li>
-			<li><a href="#">Purchase</a></li>
-		</ul>
-		</nav><!-- end main nav -->
-	</div><!-- end twelve -->
-</div><!-- end container -->
-</header><!-- end header-->
+            <div class="one-third column half-bottom">
+                <h3 id="station">Form the station</h3>
+                <ul class="list_4">
+                    <li>Vix in error iuvaret, at omnium prompta aliquam vel. Sea an purto vide posidonium, eos modus dicit ne. Appetere dignissim vis et. </li>
+                    <li>Appetere dignissim vis et. Te per dolore expetenda voluptaria, an eam autem perfecto patrioque. Eu eum inermis verterem assentior.</li>
+                </ul>
+            </div><!-- end station one-third -->
 
-<div class="container add-bottom_2">
-	<div class="sixteen columns add-bottom">
-		<h1>Contact us<span>Lorem ipsum dolor sit amet, per ne purto corpora, cu eam cetero dolores.</span></h1>
-	</div>
-    
-	<div class="sixteen columns ">
-		<div class="map_canvas add-bottom" id="map" style="height:275px;width:100%;"></div><!-- end map-->
-        
-		<div class="one-third column alpha half-bottom">
-			<h3 id="airport">From the airport</h3>
-			<ul class="list_4">
-				<li>Vix in error iuvaret, at omnium prompta aliquam vel. Sea an purto vide posidonium, eos modus dicit ne. Appetere dignissim vis et. </li>
-				<li>Appetere dignissim vis et. Te per dolore expetenda voluptaria, an eam autem perfecto patrioque. Eu eum inermis verterem assentior.</li>
-			</ul>
-		</div><!-- end airport one-third -->
-        
-		<div class="one-third column half-bottom">
-			<h3 id="station">Form the station</h3>
-			<ul class="list_4">
-				<li>Vix in error iuvaret, at omnium prompta aliquam vel. Sea an purto vide posidonium, eos modus dicit ne. Appetere dignissim vis et. </li>
-				<li>Appetere dignissim vis et. Te per dolore expetenda voluptaria, an eam autem perfecto patrioque. Eu eum inermis verterem assentior.</li>
-			</ul>
-		</div><!-- end station one-third -->
-        
-		<div class="one-third column omega half-bottom">
-			<h3 id="car">By car</h3>
-			<ul class="list_4">
-				<li>Vix in error iuvaret, at omnium prompta aliquam vel. Sea an purto vide posidonium, eos modus dicit ne. Appetere dignissim vis et. </li>
-				<li>Appetere dignissim vis et. Te per dolore expetenda voluptaria, an eam autem perfecto patrioque. Eu eum inermis verterem assentior.</li>
-			</ul>
-		</div><!-- end car one-third -->
+            <div class="one-third column omega half-bottom">
+                <h3 id="car">By car</h3>
+                <ul class="list_4">
+                    <li>Vix in error iuvaret, at omnium prompta aliquam vel. Sea an purto vide posidonium, eos modus dicit ne. Appetere dignissim vis et. </li>
+                    <li>Appetere dignissim vis et. Te per dolore expetenda voluptaria, an eam autem perfecto patrioque. Eu eum inermis verterem assentior.</li>
+                </ul>
+            </div><!-- end car one-third -->
 
-		<hr>
-        
-		<div class=" sixteen columns alpha">
-			<div class="one-third column alpha">
-				<ul>
-					<li><strong>Street Number & Name</strong>, Postal Code 2034 BXU</li>
-					<li>+353 1 234 566 78 / +353 1 234 566 78</li>
-					<li><a href="#">info@emailaddress.com</a> - <a href="#">www.paradise.com</a></li>
-				</ul>
-				<ul id="follow" class="add-bottom">
-					<li><a href="#" id="tw">Twitter</a></li>
-					<li><a href="#" id="rss">Rss</a></li>
-					<li><a href="#" id="vimeo">Vimeo</a></li>
-					<li><a href="#" id="fb">Facebook</a></li>
-				</ul>
-			</div>
-            <div id="message-contact"></div>
-			<form method="post" action="assets/contact.php" id="contactform">
-				  <div class="one-third column ">
-					<fieldset>
-						<label>Name</label>
-						<input name="name_contact" id="name_contact"  class="long" type="text"/>
-						<label>Last Name</label>
-						<input name="last_name_contact" id="last_name_contact"  class="long" type="text"/>
-						<label> Email</label>
-						<input name="email_contact" id="email_contact" class="long" type="email"/>
-					</fieldset>
-				</div>
-				<div class="one-third column omega">
-					<fieldset>
-						<label> Message</label>
-						<textarea name="message_contact" id="message_contact" style="width:95%; height:75px; margin-bottom:30px"></textarea>
-                        <label>Are you human? 3 + 1 =</label><input type="text" id="verify_contact">
-					</fieldset>
-					<button type="submit" class="button" id="submit_contact">Send Message</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
+            <hr>
 
-<footer>
-    <div class="container">
-        <nav class="eleven columns">
-        <ul id="nav-footer">
-            <li><a href="rooms.html">Rooms</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="rooms.html">Book now</a></li>
-            <li><a href="fullscreen_gallery.html">Gallery</a></li>
-            <li><a href="contacts.html">Contacts </a></li>
-        </ul>
-        </nav>
-    <div class="five columns copy">© 2012 Paradise Hotel. All Rights Reserved.</div>
+            <div class=" sixteen columns alpha">
+                <div class="one-third column alpha">
+                    <ul>
+                        <li><strong>Av. Monçao</strong> s/n</li>
+                        <li>CEP: 65.075-692</li>
+                        <li><a href="#">contato@dubai.com.br</a> - <a href="#">www.dubai.com.br</a></li>
+                    </ul>
+                    <ul id="follow" class="add-bottom">
+                        <li><a href="#" id="tw">Twitter</a></li>
+                        <li><a href="#" id="fb">Facebook</a></li>
+                    </ul>
+                </div>
+                <div id="message-contact"></div>
+                <form method="post" action="assets/contact.php" id="contactform">
+                    <div class="one-third column ">
+                        <fieldset>
+                            <label>Nome</label>
+                            {{ form.nome }}
+                            <label>Sobrenome</label>
+                            {{ form.sobrenome }}
+                            <label> Email</label>
+                            {{ form.email }}
+                        </fieldset>
+                    </div>
+                    <div class="one-third column omega">
+                        <fieldset>
+                            <label> Menssagem</label>
+                            {{ form.mensagem }}
+                            <label>Você é humano? 3 + 1 =</label><input type="text" id="verify_contact">
+                        </fieldset>
+                        <button type="submit" class="button" id="submit_contact">Enviar Mensagem</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</footer><!-- footer  -->
-<!-- Jquery -->
-<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<!-- Exposè, tabs, accordion-->
-<script src="http://cdn.jquerytools.org/1.2.6/all/jquery.tools.min.js"></script>
-<!-- JQUERY plugins: Moderniz, Prettyphoto, Flexislider, MobileMenu, SuperfishMenu, Weather, Tooltip-->	
-<!-- Google Maps API -->	
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="js/google_map.js"></script>
-<script type="text/javascript">
-/* GOOGLE MAP  ======================================== */	
-$('#map').gmap3({
-marker:{
-    latLng: [18.33123, -64.97117]
-  },
-  map:{
-    options:{
-      zoom: 15
-    }
-  }
-});
-  </script>
-<script type="text/javascript"  src="js/plug_ins.js"></script>  
-<script src="js/functions.js"></script>
-<!-- Booking form-->
-<script type="text/javascript" src="assets/validate.js"></script>
-</body>
-</html>
+{% endblock %}
