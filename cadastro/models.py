@@ -20,4 +20,6 @@ class Cadastro(models.Model):
     telefone = models.CharField(max_length=25)
     bloco = models.CharField(max_length=1, choices=BLOCO_TP, verbose_name=unicode('Bloco'))
     status_morador = models.CharField(max_length=1, choices=STATUS_MORADOR_TP, verbose_name=unicode('Status'))
-    numero = models.CharField(max_length=25)
+
+    def __unicode__(self):
+        return self.nome

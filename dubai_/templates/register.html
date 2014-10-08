@@ -9,6 +9,7 @@
         <div class="sixteen columns ">
             <div class=" sixteen columns alpha">
                 <form method="post" action="/cadastro/" id="contactform">
+                    {% csrf_token %}
                     <div class="one-third column alpha">
                         <fieldset>
                             <label>Nome Completo</label>
@@ -32,8 +33,7 @@
                     <div class="one-third column omega">
                         <label>Bloco</label>
                         {{ form.bloco }}
-                        <label>Número</label>
-                        {{ form.numero }}
+
                         <button type="submit" class="button" id="submit">Cadastrar</button>
                     </div>
                 </form>

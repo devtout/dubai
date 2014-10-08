@@ -20,7 +20,8 @@ def cadastro(request):
             cadastro.bloco = form.cleaned_data['bloco']
             cadastro.status_morador = form.cleaned_data['status_morador']
             cadastro.telefone = form.cleaned_data['telefone']
-            cadastro.numero = form.cleaned_data['numero']
+
+
             cadastro.save()
             form = CadastroForm()
         else:
