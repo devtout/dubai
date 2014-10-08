@@ -4,7 +4,7 @@
 {% block slider %}
     <div class="container add-bottom_2">
         <div class="sixteen columns add-bottom">
-            <h1>Cadastro<span>O seu cadastro será avaliado pelo o administrador.</span></h1>
+            <h1>Cadastro<span>Exclusivo para condôminos. O cadastro será avaliado pelo o Administrador. Aguarde a confirmação no email.</span></h1>
         </div>
         <div class="sixteen columns ">
             <div class=" sixteen columns alpha">
@@ -12,8 +12,10 @@
                     {% csrf_token %}
                     <div class="one-third column alpha">
                         <fieldset>
-                            <label>Nome Completo</label>
-                            {{ form.nome_completo }}
+                            <label>Nome</label>
+                            {{ form.first_name }}
+                             <label>Sobrenome</label>
+                            {{ form.last_name }}
                             <label>Identidade</label>
                             {{ form.identidade }}
                             <label>CPF</label>
@@ -24,16 +26,21 @@
                         <fieldset>
                             <label>Email</label>
                             {{ form.email }}
+                            <label>Usuário</label>
+                            {{ form.username }}
+                            <label>Senha</label>
+                            {{ form.password }}
                             <label>Telefone</label>
                             {{ form.telefone }}
-                            <label>Status</label>
-                            {{ form.status_morador }}
                         </fieldset>
                     </div>
                     <div class="one-third column omega">
+                        <label>Status</label>
+                        {{ form.status_morador }}
                         <label>Bloco</label>
                         {{ form.bloco }}
-
+                        <label>Número</label>
+                        {{ form.numero }}
                         <button type="submit" class="button" id="submit">Cadastrar</button>
                     </div>
                 </form>

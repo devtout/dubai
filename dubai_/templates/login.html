@@ -4,23 +4,20 @@
 {% block slider %}
     <div class="container add-bottom_2">
         <div class="sixteen columns add-bottom">
-            <h1>Contato</h1>
+            <h1>Login</h1>
         </div>
-
         <div class="sixteen columns ">
             <div class=" sixteen columns alpha">
-                <div id="message-contact"></div>
-                <form method="post" action="assets/contact.php" id="contactform">
+                <form method="post" id="contactform">
+                    {% csrf_token %}
                     <div class="one-third column ">
                         <fieldset>
-                            <label>Nome</label>
-                            {{ form.nome }}
-                            <label> Email</label>
+                            <label>Usuário</label>
                             {{ form.email }}
+                            <label>Senha</label>
+                            {{ form.password }}
                         </fieldset>
-                    </div>
-                    <div class="one-third column omega">
-                        <button type="submit" class="button" id="submit_contact">Enviar Mensagem</button>
+                        <button type="submit" class="button" id="submit">Login</button>
                     </div>
                 </form>
             </div>

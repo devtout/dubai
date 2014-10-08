@@ -130,7 +130,7 @@ INSTALLED_APPS = (
     'dubai_',
     'slideshow',
     'contato',
-    'cadastro',
+    'usuario',
 )
 
 # A sample logging configuration. The only tangible logging
