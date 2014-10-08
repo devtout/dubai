@@ -1,3 +1,4 @@
+import datetime
 from django.contrib.auth.hashers import make_password
 from usuario.models import Condomino
 from dubai_.forms import CadastroForm, AuthenticationForm
@@ -20,7 +21,7 @@ def cadastro(request):
             cadastro.cpf = form.cleaned_data['cpf']
             cadastro.email = form.cleaned_data['email']
             cadastro.username = form.cleaned_data['username']
-            cadastro.password = make_password(form.cleaned_data['senha'])
+            cadastro.password = make_password(form.cleaned_data['password'])
             cadastro.telefone = form.cleaned_data['telefone']
             cadastro.status_morador = form.cleaned_data['status_morador']
             cadastro.bloco = form.cleaned_data['bloco']

@@ -1,3 +1,6 @@
+from AptUrl.Helpers import _
+from time import timezone
+import datetime
 from django import forms
 from contato.models import Contato
 from usuario.models import Condomino
@@ -9,6 +12,8 @@ class ContatoForm(forms.ModelForm):
 
 
 class CadastroForm(forms.ModelForm):
+    last_login = forms.DateTimeField(required=False)
+    date_joined = forms.DateTimeField(required=False)
     class Meta:
         model = Condomino
 
