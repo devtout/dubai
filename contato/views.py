@@ -1,9 +1,6 @@
-from django.shortcuts import render
-from django.http import request
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from dubai_.forms import ContatoForm, Contato
-
 
 def contato(request):
     form = ContatoForm()

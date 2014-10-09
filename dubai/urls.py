@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^contato/','contato.views.contato'),
     url(r'^cadastro/','usuario.views.cadastro'),
     url(r'^login/','usuario.views.login_view'),
+    url(r'^logout/','usuario.views.logout_view'),
 )+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
 

@@ -1,7 +1,7 @@
 import datetime
 from django.contrib.auth.hashers import make_password
 from usuario.models import Condomino
-from dubai_.forms import CadastroForm, AuthenticationForm
+from usuario.forms import CadastroForm, AuthenticationForm
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, logout, login, get_user
@@ -46,7 +46,7 @@ def login_view(request):
                 login(request, user)
                 print 'Login efetuado com sucesso'
                 # Redireciona para a pagina de sucesso.
-                return render_to_response('index.html', {}, context_instance=RequestContext(request))
+                return render_to_response('index.html')
             else:
                 print 'Erro'
                 # Retorna mensagem de erro de conta desativada.
@@ -60,4 +60,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return render_to_response('login.html', {}, context_instance=RequestContext(request))
+    return render_to_response('index.html', {}, context_instance=RequestContext(request))

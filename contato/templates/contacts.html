@@ -6,36 +6,11 @@
         <div class="sixteen columns add-bottom">
             <h1>Contato</h1>
         </div>
-
         <div class="sixteen columns ">
-            <div class="map_canvas add-bottom" id="map" style="height:275px;width:100%;"></div><!-- end map-->
+            <div class="map_canvas add-bottom" id="map" style="height:275px;width:100%;">
 
-            <div class="one-third column alpha half-bottom">
-                <h3 id="airport">From the airport</h3>
-                <ul class="list_4">
-                    <li>Vix in error iuvaret, at omnium prompta aliquam vel. Sea an purto vide posidonium, eos modus dicit ne. Appetere dignissim vis et. </li>
-                    <li>Appetere dignissim vis et. Te per dolore expetenda voluptaria, an eam autem perfecto patrioque. Eu eum inermis verterem assentior.</li>
-                </ul>
-            </div><!-- end airport one-third -->
-
-            <div class="one-third column half-bottom">
-                <h3 id="station">Form the station</h3>
-                <ul class="list_4">
-                    <li>Vix in error iuvaret, at omnium prompta aliquam vel. Sea an purto vide posidonium, eos modus dicit ne. Appetere dignissim vis et. </li>
-                    <li>Appetere dignissim vis et. Te per dolore expetenda voluptaria, an eam autem perfecto patrioque. Eu eum inermis verterem assentior.</li>
-                </ul>
-            </div><!-- end station one-third -->
-
-            <div class="one-third column omega half-bottom">
-                <h3 id="car">By car</h3>
-                <ul class="list_4">
-                    <li>Vix in error iuvaret, at omnium prompta aliquam vel. Sea an purto vide posidonium, eos modus dicit ne. Appetere dignissim vis et. </li>
-                    <li>Appetere dignissim vis et. Te per dolore expetenda voluptaria, an eam autem perfecto patrioque. Eu eum inermis verterem assentior.</li>
-                </ul>
-            </div><!-- end car one-third -->
-
+            </div>
             <hr>
-
             <div class=" sixteen columns alpha">
                 <div class="one-third column alpha">
                     <ul>
@@ -50,24 +25,15 @@
                 </div>
                 <div id="message-contact"></div>
                 <form method="post" action="assets/contact.php" id="contactform">
-                    <div class="one-third column ">
-                        <fieldset>
-                            <label>Nome</label>
-                            {{ form.nome }}
-                            <label>Sobrenome</label>
-                            {{ form.sobrenome }}
-                            <label> Email</label>
-                            {{ form.email }}
-                        </fieldset>
-                    </div>
-                    <div class="one-third column omega">
-                        <fieldset>
-                            <label> Menssagem</label>
-                            {{ form.mensagem }}
-                            <label>Você é humano? 3 + 1 =</label><input type="text" id="verify_contact">
-                        </fieldset>
-                        <button type="submit" class="button" id="submit_contact">Enviar Mensagem</button>
-                    </div>
+                    {% if user.is_authenticated %}
+                        <div class="one-third column omega">
+                            <fieldset>
+                                <label> Menssagem</label>
+                                {{ form.mensagem }}
+                            </fieldset>
+                            <button type="submit" class="button" id="submit_contact">Enviar Mensagem</button>
+                        </div>
+                    {% endif %}
                 </form>
             </div>
         </div>

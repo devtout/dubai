@@ -131,6 +131,7 @@ INSTALLED_APPS = (
     'slideshow',
     'contato',
     'usuario',
+    'imprensa',
 )
 
 # A sample logging configuration. The only tangible logging

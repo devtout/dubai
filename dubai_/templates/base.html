@@ -35,7 +35,6 @@
         <title>{% block title %}Dubai Residence{% endblock %}</title>
         <meta name="description" content="Responsive Hotel  Site template">
         <meta name="author" content="">
-
         <!-- Mobile Specific Metas -->
     {% endblock %}
 </head>
@@ -44,29 +43,34 @@
 {% block header %}
     <header>
         <div class="container">
-            <div class=" four columns" id="logo"><a href="index.html">Paradise hotel</a></div>
+            <div class=" four columns" id="logo"><a href="index.html">Dubai Residence</a></div>
+            {% if user.is_authenticated %}
+                <div class="twelve columns">
+                    <ul id="lang">
+                        <li>{{ user.username }}</li>
+                        <li><a href="/logout/">Sair</a></li>
+                    </ul>
+                </div>
+            {% endif %}
             <!-- start main nav -->
             <div class="twelve columns">
                 <nav>
                     <ul id="main-nav" class="sf-menu">
                         <li><a href="/">Home</a></li>
                         <li><a href="#">Galeria</a></li>
-                        <li><a href="#">Documentos</a>
-                            <ul>
-                                <li><a href="about.html">Sobre</a></li>
-                                <li><a href="fullscreen_gallery.html">Fullscreen gallery</a></li>
-                                <li><a href="gallery_columns.html">Gallery grids</a></li>
-                                <li><a href="rooms_2.html">Rooms 2</a></li>
-                            </ul>
-                        </li>
+                        <!-- Caso o usuário estiver logado. -->
+                        {% if user.is_authenticated %}
+                            <li><a href="#">Documentos</a></li>
+                        {% endif %}
                         <li><a href="/contato/">Contato</a></li>
-                         <li><a href="#">Acesso</a>
-                            <ul>
-                                 <li><a href="/login/">Login</a></li>
-                                <li><a href="/cadastro/">Cadastro</a></li>
-
-                            </ul>
-                        </li>
+                        {% if not user.is_authenticated %}
+                            <li><a href="#">Acesso</a>
+                                <ul>
+                                    <li><a href="/login/">Login</a></li>
+                                    <li><a href="/cadastro/">Cadastro</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
                     </ul>
                 </nav><!-- end main nav -->
             </div><!-- end twelve -->
@@ -94,11 +98,9 @@
         <div class="container">
             <nav class="eleven columns">
                 <ul id="nav-footer">
-                    <li><a href="rooms.html">Rooms</a></li>
-                    <li><a href="about.html">Sobre</a></li>
-                    <li><a href="rooms.html">Book now</a></li>
-                    <li><a href="fullscreen_gallery.html">Galeria</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/contato/">Contato</a></li>
+                    <li><a href="/login/">Acesso</a></li>
                 </ul>
             </nav>
             <div class="five columns copy">© 2014 Dubai Residence. Todos os direitos reservados.</div>
