@@ -12,6 +12,9 @@
                     {% csrf_token %}
                     <div class="one-third column ">
                         <fieldset>
+                            <div class="{% if error.flag %} error_message {% endif %}">
+                                {{ error.message}}
+                            </div>
                             <label>Usuário</label>
                             {{ form.email }}
                             <label>Senha</label>

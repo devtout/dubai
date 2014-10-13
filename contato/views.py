@@ -30,6 +30,9 @@ def contact(request):
 def occurrence(request):
     form = OccurrenceForm
     data = {}
+    error = {}
+    error['flag'] = False
+    error['message'] = ''
     if request.method == 'POST':
         form = OccurrenceForm(request.POST)
         data['form'] = form

@@ -1,4 +1,4 @@
-import datetime
+# -*- coding:utf-8-*-
 from django.contrib.auth.hashers import make_password
 from usuario.models import Condomino
 from usuario.forms import CadastroForm, AuthenticationForm
@@ -37,6 +37,9 @@ def register(request):
 
 def login_view(request):
     form = AuthenticationForm
+    error = {}
+    error['flag'] = False
+    error['message'] = ''
     if request.method == 'POST':
         username = request.POST['email']
         password = request.POST['password']
@@ -48,13 +51,15 @@ def login_view(request):
                 # Redireciona para a pagina de sucesso.
                 return render_to_response('index.html', {}, context_instance=RequestContext(request))
             else:
-                print 'Erro'
+                error['flag'] = True
+                error['message'] = 'Sua conta está desabilitada. Por favor, espere a ativação do Administrador.'
                 # Retorna mensagem de erro de conta desativada.
-                return render_to_response('login.html', {'form':form}, context_instance=RequestContext(request))
+                return render_to_response('login.html', {'form':form, 'error':error}, context_instance=RequestContext(request))
         else:
-            print 'Login Invalido'
+            error['flag'] = True
+            error['message'] = 'Usuário e senha não conferem.'
             # Retorna mensagem de login invalido.
-            return render_to_response('login.html', {'form':form}, context_instance=RequestContext(request))
+            return render_to_response('login.html', {'form':form, 'error':error}, context_instance=RequestContext(request))
     return render_to_response('login.html', {'form':form}, context_instance=RequestContext(request))
 
 def logout_view(request):

@@ -14,10 +14,16 @@
                         {% csrf_token %}
                         <div class="one-third column omega">
                             <fieldset>
-                                <label> Ocorrência</label>
-                                {{ form.ocorrencia }}
-                                <label> Menssagem</label>
-                                {{ form.mensagem }}
+                                <div class="{% if form.ocorrencia.errors %} error_message {% endif %}">
+                                    {{ form.ocorrencia.errors }}
+                                    <label> Ocorrência</label>
+                                    {{ form.ocorrencia }}
+                                </div>
+                                <div class="{% if form.mensagem.errors %} error_message {% endif %}">
+                                    {{ form.mensagem.errors }}
+                                    <label> Menssagem</label>
+                                    {{ form.mensagem }}
+                                </div>
                             </fieldset>
                             <button type="submit" class="button" id="submit_contact">Enviar Mensagem</button>
                         </div>

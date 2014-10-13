@@ -3,8 +3,6 @@ import os
 import datetime
 from django.db import models
 from django.db.models import signals
-from django.db.models.fields.files import ImageField, FileField
-from django.contrib import admin
 from PIL import Image
 
 WIDTH = 940
@@ -20,6 +18,7 @@ def upload_to_foto(instance, name):
 
 class SlideHome(models.Model):
     class Meta:
+        verbose_name = 'Home'
         verbose_name_plural = 'Home'
     data = models.DateTimeField(auto_now_add=True, editable=False)
     titulo = models.CharField(max_length=20,verbose_name='Título')

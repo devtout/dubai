@@ -18,6 +18,7 @@ def upload_to_foto(instance, name):
 
 class News(models.Model):
     class Meta:
+        verbose_name = 'Publicidade'
         verbose_name_plural = 'Publicidade'
     titulo = models.CharField(max_length=25, verbose_name='Título')
     texto = models.TextField()	
@@ -35,6 +36,7 @@ class News(models.Model):
 
 class Gallery(models.Model):
     class Meta:
+        verbose_name = 'Galeria'
         verbose_name_plural = 'Galeria'
     titulo = models.CharField(max_length=25,verbose_name='Título')
     foto = models.ImageField(upload_to=upload_to_foto, max_length=255, verbose_name=u'Foto', blank=False, null=False)

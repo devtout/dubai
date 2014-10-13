@@ -14,6 +14,7 @@ class Contato(models.Model):
 
 class Occurrence(models.Model):
     class Meta:
+        verbose_name = 'Ocorrência'
         verbose_name_plural = 'Ocorrências'
     condomino = models.ForeignKey(Condomino, verbose_name='Condômino')
     ocorrencia = models.CharField(max_length=50, verbose_name='Ocorrência')
