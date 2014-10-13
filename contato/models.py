@@ -15,7 +15,7 @@ class Contato(models.Model):
 class Occurrence(models.Model):
     class Meta:
         verbose_name_plural = 'Ocorrências'
-    condomino = models.ForeignKey(Condomino)
+    condomino = models.ForeignKey(Condomino, verbose_name='Condômino')
     ocorrencia = models.CharField(max_length=50, verbose_name='Ocorrência')
     mensagem = models.TextField()
     data = models.DateTimeField(auto_now_add=True, editable=False)

@@ -4,6 +4,7 @@ from django.template import RequestContext
 from contato.form import OccurrenceForm
 from contato.models import Occurrence
 from dubai_.forms import ContatoForm, Contato
+from usuario.models import Condomino
 
 
 def contact(request):
@@ -34,7 +35,7 @@ def occurrence(request):
         data['form'] = form
         if form.is_valid():
             occurrence = Occurrence()
-            occurrence.condomino = request.user
+            occurrence.condomino = Condomino.objects.get(username=request.user.username)
             occurrence.ocorrencia = form.cleaned_data['ocorrencia']
             occurrence.mensagem = form.cleaned_data['mensagem']
             occurrence.save()

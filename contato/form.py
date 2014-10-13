@@ -5,3 +5,4 @@ from contato.models import Occurrence
 class OccurrenceForm(forms.ModelForm):
     class Meta:
         model = Occurrence
+        exclude = ('condomino',)
