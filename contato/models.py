@@ -21,3 +21,6 @@ class Occurrence(models.Model):
     mensagem = models.TextField()
     data = models.DateTimeField(auto_now_add=True, editable=False)
     atendida = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return self.ocorrencia

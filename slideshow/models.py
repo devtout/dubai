@@ -25,6 +25,9 @@ class SlideHome(models.Model):
     descricao = models.CharField(max_length=40,verbose_name='Descrição')
     foto = models.ImageField(upload_to=upload_to_foto)
 
+    def __unicode__(self):
+        return self.titulo
+
 
 def foto_post_save(signal, instance, sender, **kwargs):
     arq = SlideHome.objects.get(foto=instance.foto)

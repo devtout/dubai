@@ -42,6 +42,9 @@ class Gallery(models.Model):
     foto = models.ImageField(upload_to=upload_to_foto, max_length=255, verbose_name=u'Foto', blank=False, null=False)
     data = models.DateTimeField(auto_now_add=True, editable=False)
 
+    def __unicode__(self):
+        return self.titulo
+
 
 def foto_post_save(signal, instance, sender, **kwargs):
     arq = sender.objects.get(foto=instance.foto)

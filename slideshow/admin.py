@@ -1,5 +1,4 @@
 # -*- coding:utf-8-*-
-from django.contrib import admin
 from slideshow.models import SlideHome
 from django.contrib import admin
 

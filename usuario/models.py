@@ -22,5 +22,6 @@ class Condomino(User):
     bloco = models.CharField(max_length=1, choices=BLOCO_TP, verbose_name=unicode('Bloco'))
     status_morador = models.CharField(max_length=1, choices=STATUS_MORADOR_TP, verbose_name=unicode('Status'))
     numero = models.CharField(max_length=25, verbose_name=u'Número')
+
     def __unicode__(self):
-        return u'%s' % (self.first_name)
+        return (self.first_name)
