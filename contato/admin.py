@@ -18,8 +18,9 @@ class ContatoAdmin(ReadOnlyAdminFields, admin.ModelAdmin):
 
 
 class OccurrenceAdmin(admin.ModelAdmin):
-    readonly_fields = ('condomino', 'ocorrencia', 'mensagem')
-    list_display = ('ocorrencia', 'data', 'condomino',)
+    readonly_fields = ('condomino', 'ocorrencia', 'mensagem',)
+    list_display = ('ocorrencia', 'atendida', 'data', 'condomino',)
+    list_filter = ('data', 'atendida')
 
 
 admin.site.register(Occurrence, OccurrenceAdmin)

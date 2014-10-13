@@ -19,3 +19,4 @@ class Occurrence(models.Model):
     ocorrencia = models.CharField(max_length=50, verbose_name='Ocorrência')
     mensagem = models.TextField()
     data = models.DateTimeField(auto_now_add=True, editable=False)
+    atendida = models.BooleanField(default=False)
