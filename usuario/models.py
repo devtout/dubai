@@ -6,6 +6,7 @@ from django.db import models
 class Condomino(User):
     class Meta:
         verbose_name_plural = 'Condôminos'
+        verbose_name = "Condômino"
     BLOCO_TP = (
         ('1','JADE'),
         ('2','SAFIRA')

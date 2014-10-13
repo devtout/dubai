@@ -1,10 +1,15 @@
 from django import forms
-from contato.models import Contato
 from usuario.models import Condomino
+
 
 class CadastroForm(forms.ModelForm):
     last_login = forms.DateTimeField(required=False)
     date_joined = forms.DateTimeField(required=False)
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    numero = forms.CharField(required=True)
+
     class Meta:
         model = Condomino
 

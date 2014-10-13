@@ -12,26 +12,57 @@
                     {% csrf_token %}
                     <div class="one-third column alpha">
                         <fieldset>
-                            <label>Nome</label>
-                            {{ form.first_name }}
-                            <label>Sobrenome</label>
-                            {{ form.last_name }}
-                            <label>Identidade</label>
-                            {{ form.identidade }}
-                            <label>CPF</label>
-                            {{ form.cpf }}
+                            <div class="{% if form.first_name.errors %} error_message {% endif %}">
+                                {{ form.first_name.errors }}
+                                <label>Nome</label>
+                                {{ form.first_name }}
+                            </div>
+
+                            <div class="{% if form.last_name.errors %} error_message {% endif %}">
+                                {{ form.last_name.errors }}
+                                <label>Sobrenome</label>
+                                {{ form.last_name }}
+                            </div>
+
+                            <div class="{% if form.identidade.errors %} error_message {% endif %}">
+                                {{ form.identidade.errors }}
+                                <label>Identidade</label>
+                                {{ form.identidade }}
+                            </div>
+
+                            <div class="{% if form.cpf.errors %} error_message {% endif %}">
+                                {{ form.cpf.errors }}
+                                <label>CPF</label>
+                                {{ form.cpf }}
+                            </div>
                         </fieldset>
                     </div>
                     <div class="one-third column ">
                         <fieldset>
-                            <label>Email</label>
-                            {{ form.email }}
-                            <label>Usuário</label>
-                            {{ form.username }}
-                            <label>Senha</label>
-                            {{ form.password }}
-                            <label>Telefone</label>
-                            {{ form.telefone }}
+                            <div class="{% if form.email.errors %} error_message {% endif %}">
+                                {{ form.email.errors }}
+                                <label>Email</label>
+                                {{ form.email }}
+                            </div>
+
+                            <div class="{% if form.username.errors %} error_message {% endif %}">
+                                {{ form.username.errors }}
+                                <label>Usuário</label>
+                                {{ form.username }}
+                            </div>
+
+                            <div class="{% if form.password.errors %} error_message {% endif %}">
+                                {{ form.password.errors }}
+                                <label>Senha</label>
+                                {{ form.password }}
+                            </div>
+
+                            <div class="{% if form.telefone.errors %} error_message {% endif %}">
+                                {{ form.telefone.errors }}
+                                <label>Telefone</label>
+                                {{ form.telefone }}
+                            </div>
+
                         </fieldset>
                     </div>
                     <div class="one-third column omega">
@@ -39,8 +70,12 @@
                         {{ form.status_morador }}
                         <label>Bloco</label>
                         {{ form.bloco }}
-                        <label>Número</label>
-                        {{ form.numero }}
+
+                        <div class="{% if form.numero.errors %} error_message {% endif %}">
+                            {{ form.numero.errors }}
+                            <label>Número</label>
+                            {{ form.numero }}
+                        </div>
                         <button type="submit" class="button" id="submit">Cadastrar</button>
                     </div>
                 </form>
