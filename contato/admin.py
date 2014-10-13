@@ -1,6 +1,8 @@
 from django.contrib import admin
-from contato.models import Contato
+from contato.models import Contato, Occurrence
 from readOnly import ReadOnlyAdminFields
+from usuario.models import Condomino
+
 
 class ContatoAdmin(ReadOnlyAdminFields, admin.ModelAdmin):
     readonly = ('nome', 'sobrenome', 'email', 'mensagem')
@@ -15,4 +17,9 @@ class ContatoAdmin(ReadOnlyAdminFields, admin.ModelAdmin):
         pass
 
 
+class OccurrenceAdmin(admin.ModelAdmin):
+    list_display = ('data',)
+
+
+admin.site.register(Occurrence, OccurrenceAdmin)
 admin.site.register(Contato, ContatoAdmin)

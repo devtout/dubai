@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n static  staticfiles%}
+{% load thumbnail %}
+{% block slider %}
+    <div class="container">
+        <div class="sixteen columns add-bottom">
+            <h1>Condomínio Dubai Residence<span>Lorem ipsum dolor sit amet, per ne purto corpora, cu eam cetero dolores.</span></h1>
+        </div>
+
+        <div class="ten columns add-bottom">
+            <div class="picture">
+                {% thumbnail new.foto "700x400" crop="center" as small %}
+                    <img src={{ MEDIA_URL }}{{ small }} alt="picture" class="scale-with-grid"><em></em>
+                {% endthumbnail %}
+            </div>
+            <h3>{{ new.titulo }}<span>{{ new.data }}</span></h3>
+            <hr>
+            <p>{{ new.texto }}</p>
+            <hr>
+        </div>
+
+        <div class="five columns offset-by-one add-bottom">
+            {% for last_new in last_news %}
+                <h4 id="swim">{{ last_new.titulo }}</h4>
+                <div class="three columns alpha">
+                    {% thumbnail last_new.foto "200" crop="center" as small %}
+                        <img src={{ MEDIA_URL }}{{ small }} alt="" class="scale-with-grid half-bottom" >
+                    {% endthumbnail %}
+                </div>
+                <br class="clear">
+                <p>{{ last_new.texto }}</p>
+                <a href="/news/{{ last_new.slug }}/" class="button">Saiba mais</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

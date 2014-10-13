@@ -56,18 +56,22 @@
             <div class="twelve columns">
                 <nav>
                     <ul id="main-nav" class="sf-menu">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#">Galeria</a></li>
+
                         <!-- Caso o usuário estiver logado. -->
                         {% if user.is_authenticated %}
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/gallery/">Galeria</a></li>
                             <li><a href="#">Documentos</a></li>
-                        {% endif %}
-                        <li><a href="/contato/">Contato</a></li>
-                        {% if not user.is_authenticated %}
+                            <li><a href="/occurrence/">Ocorrência</a></li>
+                            <li><a href="/contact/">Contato</a></li>
+                        {% else %}
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/gallery/">Galeria</a></li>
+                            <li><a href="/contact/">Contato</a></li>
                             <li><a href="#">Acesso</a>
                                 <ul>
                                     <li><a href="/login/">Login</a></li>
-                                    <li><a href="/cadastro/">Cadastro</a></li>
+                                    <li><a href="/register/">Cadastro</a></li>
                                 </ul>
                             </li>
                         {% endif %}
@@ -98,12 +102,21 @@
         <div class="container">
             <nav class="eleven columns">
                 <ul id="nav-footer">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/contato/">Contato</a></li>
-                    <li><a href="/login/">Acesso</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/gallery/">Galeria</a></li>
+                        <li><a href="#">Documentos</a></li>
+                        <li><a href="/occurrence/">Ocorrência</a></li>
+                        <li><a href="/contact/">Contato</a></li>
+                    {% else %}
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/gallery/">Galeria</a></li>
+                        <li><a href="/contact/">Contato</a></li>
+                        <li><a href="/login/">Acesso</a></li>
+                    {% endif %}
                 </ul>
             </nav>
-            <div class="five columns copy">© 2014 Dubai Residence. Todos os direitos reservados.</div>
+            <div class="five columns copy">© Dubai Residence. Todos os direitos reservados.</div>
         </div>
     </footer><!-- footer  -->
 {% endblock %}

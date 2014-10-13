@@ -1,8 +1,12 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from contato.form import OccurrenceForm
+from contato.models import Occurrence
 from dubai_.forms import ContatoForm, Contato
 
-def contato(request):
+
+def contact(request):
     form = ContatoForm()
     data = {}
     if request.method == 'POST':
@@ -20,3 +24,21 @@ def contato(request):
             data['erro'] = 'Erro'
     return render_to_response("contacts.html", {'form':form},
                               context_instance=RequestContext(request))
+
+@login_required
+def occurrence(request):
+    form = OccurrenceForm
+    data = {}
+    if request.method == 'POST':
+        form = OccurrenceForm(request.POST)
+        data['form'] = form
+        if form.is_valid():
+            occurrence = Occurrence()
+            occurrence.condomino = request.user
+            occurrence.ocorrencia = form.cleaned_data['ocorrencia']
+            occurrence.mensagem = form.cleaned_data['mensagem']
+            occurrence.save()
+            form = OccurrenceForm()
+        else:
+            data['erro'] = 'Erro'
+    return render_to_response("occurrence.html", {'form':form}, context_instance=RequestContext(request))

@@ -3,6 +3,8 @@ from contato.models import Contato
 from usuario.models import Condomino
 
 class CadastroForm(forms.ModelForm):
+    last_login = forms.DateTimeField(required=False)
+    date_joined = forms.DateTimeField(required=False)
     class Meta:
         model = Condomino
 

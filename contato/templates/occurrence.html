@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n static  staticfiles%}
+
+{% block slider %}
+    <div class="container add-bottom_2">
+        <div class="sixteen columns add-bottom">
+            <h1>Ocorrências<span>Registre aqui sua ocorrência.</span></h1>
+        </div>
+        <div class="sixteen columns ">
+            <div class=" sixteen columns alpha">
+                <div id="message-contact"></div>
+                <form method="post" action="/occurrence/" id="occurrenceform">
+                    {% if user.is_authenticated %}
+                        {% csrf_token %}
+                        <div class="one-third column omega">
+                            <fieldset>
+                                <label> Ocorrência</label>
+                                {{ form.ocorrencia }}
+                                <label> Menssagem</label>
+                                {{ form.mensagem }}
+                            </fieldset>
+                            <button type="submit" class="button" id="submit_contact">Enviar Mensagem</button>
+                        </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

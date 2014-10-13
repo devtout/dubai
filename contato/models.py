@@ -1,10 +1,21 @@
+# -*- coding:utf-8-*-
 from django.db import models
+from usuario.models import Condomino
+
 
 class Contato(models.Model):
-    nome = models.CharField(max_length=25)
-    sobrenome = models.CharField(max_length=25)
-    email = models.EmailField()
+    condomino = models.ForeignKey(Condomino)
     mensagem = models.TextField()
+    data = models.DateTimeField(auto_now_add=True, editable=False)
 
     def __unicode__(self):
         return self.nome
+
+
+class Occurrence(models.Model):
+    class Meta:
+        verbose_name_plural = 'Ocorrências'
+    condomino = models.ForeignKey(Condomino)
+    ocorrencia = models.CharField(max_length=50, verbose_name='Ocorrência')
+    mensagem = models.TextField()
+    data = models.DateTimeField(auto_now_add=True, editable=False)

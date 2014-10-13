@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n static  staticfiles%}
+{% load thumbnail %}
+
+{% block slider %}
+    <div class="container">
+        <div class="sixteen columns add-bottom">
+            <h1>Galeria<span>Condomínio Dubai Residence.</span></h1>
+        </div>
+        <section class="sixteen columns">
+            <h3>Gallery two</h3>
+            <p>Lorem ipsum dolor sit amet, per ne purto corpora, cu eam cetero dolores. Ea insolens disputando ius, quo vidit dicta ne. Eu nobis accommodare vim, primis persius usu cu, te sed clita similique. Augue consul virtute ut eum, vide vocent in per. At legendos ullamcorper nec. Ad noster alienum per. Te nostrud menandri eam. Lorem ipsum dolor sit amet, per ne purto corpora, cu eam cetero dolores. Ea insolens disputando ius, quo vidit dicta ne. Eu nobis accommodare vim, primis persius usu cu, te sed clita similique. </p>
+        </section>
+        <div class="add-bottom">
+            {% for g in gallery %}
+                <div class="one-third column picture loader">
+                    {% thumbnail g.foto "700" crop="center" as big %}
+                        <a href={{ MEDIA_URL }}{{ big }} data-rel="prettyPhoto[photo]" title="" ></a>
+                    {% endthumbnail %}
+                    {% thumbnail g.foto "300" crop="center" as small %}
+                        <img src={{ MEDIA_URL }}{{ small }} alt="" class="scale-with-grid"><span class="magnify"></span><em></em>
+                    {% endthumbnail %}
+                </div>
+            {% endfor %}
+            <br class="clear">
+        </div>
+    </div>
+{% endblock %}

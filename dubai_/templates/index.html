@@ -33,7 +33,7 @@
                     <div class="twelve columns alpha"><h2>Para reservas ligue para <strong>3333 2222</strong></h2></div>
                     <div class="four columns omega"><a href="#" class="button_yellow">Verificar Disponibilidade</a></div>
                     <br class="clear">
-                </div><!-- end book banner -->
+                </div>
             {% endblock %}
 
             {% for new in news %}
@@ -44,11 +44,9 @@
                         {% endthumbnail %}
                     </div>
                     <h3> {{ new.titulo }}<span> {{ new.data }}</span></h3>
-                    <p>
-                        {{ new.texto|safe|truncatechars:140 }}
-                    </p>
+                    <p>{{ new.texto|safe|truncatechars:140 }}</p>
                     <br class="clear add-bottom"/>
-                    <a href="room_detail.html" class="button">Saiba mais</a>
+                    <a href="/news/{{ new.slug }}/" class="button">Saiba mais</a>
                 </div><!-- end room 1-->
             {% endfor %}
         </section><!-- end container -->

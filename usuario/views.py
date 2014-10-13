@@ -7,7 +7,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, logout, login, get_user
 
 
-def cadastro(request):
+def register(request):
     form = CadastroForm
     data = {}
     if request.method == 'POST':
@@ -46,7 +46,7 @@ def login_view(request):
                 login(request, user)
                 print 'Login efetuado com sucesso'
                 # Redireciona para a pagina de sucesso.
-                return render_to_response('index.html')
+                return render_to_response('index.html', {}, context_instance=RequestContext(request))
             else:
                 print 'Erro'
                 # Retorna mensagem de erro de conta desativada.
@@ -55,9 +55,8 @@ def login_view(request):
             print 'Login Invalido'
             # Retorna mensagem de login invalido.
             return render_to_response('login.html', {'form':form}, context_instance=RequestContext(request))
-        return render_to_response('index.html', {}, context_instance=RequestContext(request))
     return render_to_response('login.html', {'form':form}, context_instance=RequestContext(request))
 
 def logout_view(request):
     logout(request)
-    return render_to_response('index.html', {}, context_instance=RequestContext(request))
+    return render_to_response('login.html', {}, context_instance=RequestContext(request))

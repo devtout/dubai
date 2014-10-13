@@ -1,12 +1,20 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from models import News
+from models import News, Gallery
+
 
 def news(request):
     news = News.objects.all().order_by('-id')
-    return render_to_response("index.html", {'news': news, 'ultimas':news[:4]},
-                              context_instance=RequestContext(request))
+    return render_to_response("index.html", {'news': news, 'ultimas':news[:4]}, context_instance=RequestContext(request))
+
 
 def news_front():
-    news = News.objects.all().order_by('-id')
-    return news[:4]
+    return News.objects.all().order_by('-id')[:4]
+
+
+def news_detail(request, slug):
+    return render_to_response("news_detail.html", {'new': News.objects.get(slug=slug), 'last_news': News.objects.all().order_by('-id')[:3]}, context_instance=RequestContext(request))
+
+
+def gallery(request):
+    return render_to_response("gallery.html", {'gallery':Gallery.objects.all().order_by('-id')}, context_instance=RequestContext(request))
