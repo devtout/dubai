@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n static  staticfiles%}
+
+{% block slider %}
+    <div class="container add-bottom_2">
+        <div class="sixteen columns add-bottom">
+            <h1>{{ data.message }}<span>{{ data.spam }}</span></h1>
+        </div>
+    </div>
+{% endblock %}

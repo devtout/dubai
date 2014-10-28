@@ -30,10 +30,15 @@ def register(request):
             cadastro.is_active = False
             cadastro.save()
             form = CadastroForm()
+            data['message'] = 'Cadastro realizado com sucesso.'
+            data['spam'] = 'Aguarde a aprovação do administrador.'
+            return render_to_response("message.html", {'data':data},
+                                      context_instance=RequestContext(request))
         else:
             data['erro'] = 'Erro'
     return render_to_response("register.html", {'form':form},
                               context_instance=RequestContext(request))
+
 
 def login_view(request):
     form = AuthenticationForm
@@ -48,13 +53,16 @@ def login_view(request):
             if user.is_active:
                 login(request, user)
                 print 'Login efetuado com sucesso'
+                data = {}
+                data['message'] = 'Login Efetuado com Sucesso.'
+                data['spam'] = request.user.username
                 # Redireciona para a pagina de sucesso.
-                return render_to_response('index.html', {}, context_instance=RequestContext(request))
+                return render_to_response('message.html', {'data': data}, context_instance=RequestContext(request))
             else:
                 error['flag'] = True
                 error['message'] = 'Sua conta está desabilitada. Por favor, espere a ativação do Administrador.'
                 # Retorna mensagem de erro de conta desativada.
-                return render_to_response('login.html', {'form':form, 'error':error}, context_instance=RequestContext(request))
+                return render_to_response('login.html', {'form': form, 'error': error}, context_instance=RequestContext(request))
         else:
             error['flag'] = True
             error['message'] = 'Usuário e senha não conferem.'
@@ -62,6 +70,9 @@ def login_view(request):
             return render_to_response('login.html', {'form':form, 'error':error}, context_instance=RequestContext(request))
     return render_to_response('login.html', {'form':form}, context_instance=RequestContext(request))
 
+
 def logout_view(request):
     logout(request)
-    return render_to_response('login.html', {}, context_instance=RequestContext(request))
+    data = {}
+    data['message'] = 'Obrigado por utilizar o Dubai Residence.'
+    return render_to_response('message.html', {'data': data}, context_instance=RequestContext(request))

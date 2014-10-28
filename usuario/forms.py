@@ -10,6 +10,7 @@ class CadastroForm(forms.ModelForm):
     last_name = forms.CharField(required=True)
     email = forms.EmailField(required=True)
     numero = forms.CharField(required=True)
+    password = forms.CharField(widget=forms.widgets.PasswordInput)
 
     class Meta:
         model = Condomino

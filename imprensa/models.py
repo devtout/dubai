@@ -4,7 +4,6 @@ import datetime
 from django.db import models
 from django.db.models import signals
 from PIL import Image
-from django.contrib import admin
 from django.core.urlresolvers import reverse
 
 WIDTH = 720
