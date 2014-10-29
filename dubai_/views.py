@@ -1,5 +1,4 @@
 # coding: utf-8
-from django.contrib.auth import logout
 from django.template.context import RequestContext
 from django.shortcuts import render_to_response
 from imprensa.views import news_front

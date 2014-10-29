@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from imprensa.models import Download, Album
 from models import News, Gallery
 
 
@@ -17,4 +18,12 @@ def news_detail(request, slug):
 
 
 def gallery(request):
-    return render_to_response("gallery.html", {'gallery':Gallery.objects.all().order_by('-id')}, context_instance=RequestContext(request))
+    return render_to_response("gallery.html", {'gallery': Gallery.objects.all().order_by('-id')}, context_instance=RequestContext(request))
+
+
+def album(request):
+    return render_to_response("album.html", {'album': Album.objects.all().filter(tipo='1').order_by('-id')}, context_instance=RequestContext(request))
+
+
+def download(request, id):
+    return render_to_response("download.html", {'download': Download.objects.get(id=id)}, context_instance=RequestContext(request))

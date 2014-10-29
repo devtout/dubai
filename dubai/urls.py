@@ -15,6 +15,8 @@ urlpatterns = patterns('',
                        url(r'^news/(?P<slug>[\w_-]+)/$', 'imprensa.views.news_detail'),
                        url(r'^occurrence/', 'contato.views.occurrence'),
                        url(r'^gallery/', 'imprensa.views.gallery'),
+                       url(r'^file/', 'imprensa.views.album'),
+                       url(r'^download/', 'imprensa.views.download'),
                        )+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
 

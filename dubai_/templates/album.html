@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n static  staticfiles%}
+{% load thumbnail %}
+
+{% block slider %}
+    <div class="container">
+        <div class="sixteen columns add-bottom">
+            <h1>Pastas</h1>
+        </div>
+        <section class="sixteen columns">
+            <div class="add-bottom">
+                {% for a in album %}
+                    <img src="{% static "img/documents-icon.png"%}" alt="picture" class="scale-with-grid">
+                    <h3>{{ a.nome }}</h3>
+                    <p>{{ a.descricao }}</p>
+                    <a href="/download/{{ a.id }}/" class="button">Saiba mais</a>
+                    <hr>
+                {% endfor %}
+                <br class="clear">
+            </div>
+        </section>
+    </div>
+{% endblock %}

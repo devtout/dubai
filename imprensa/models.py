@@ -5,15 +5,81 @@ from django.db import models
 from django.db.models import signals
 from PIL import Image
 from django.core.urlresolvers import reverse
+from django.db.models.fields.files import FileField
+from dubai.settings import STATIC_ROOT
 
 WIDTH = 720
 HEIGHT = 480
+
 
 def upload_to_foto(instance, name):
     extensao = os.path.splitext(name)[-1]
     data = datetime.datetime.now()
     horario = str(data.day) + '_' + str(data.month) + '_' + str(data.year) + '_' + str(data.hour) + '_' + str(data.minute) + '_' + str(data.second)
     return os.path.join('imprensa','fotos', '%s%s'%(horario, extensao))
+
+
+def upload_to_audio(instance, name):
+    extensao = os.path.splitext(name)[-1]
+    data = datetime.datetime.now()
+    horario = str(data.day) + '_' + str(data.month) + '_' + str(data.year) + '_' + str(data.hour) + '_' + str(data.minute) + '_' + str(data.second)
+    return os.path.join('imprensa','audio', '%s%s'%(horario, extensao))
+
+
+def upload_to_download(instance, name):
+    extensao = os.path.splitext(name)[-1]
+    data = datetime.datetime.now()
+    horario = str(data.day) + '_' + str(data.month) + '_' + str(data.year) + '_' + str(data.hour) + '_' + str(data.minute) + '_' + str(data.second)
+    return os.path.join('imprensa','download', '%s%s'%(horario, extensao))
+
+
+class Album(models.Model):
+    class Meta:
+        verbose_name_plural = "Albuns"
+    TITLE_TP = (
+        ('1','DOCUMENTO'),
+        ('2','VIDEO'),
+        ('3','AUDIO'),
+        #('4','DOWNLOAD'),
+    )
+
+    tipo = models.CharField(max_length=1, choices=TITLE_TP)
+    nome = models.CharField(max_length=60, verbose_name='Título')
+    descricao = models.TextField(verbose_name='Descrição')
+
+    def __unicode__(self):
+        return u'%s' % (self.nome)
+
+    def get_downloads(self):
+        downloads = Download.objects.filter(album=self).order_by('-id')
+        return downloads or None
+
+    def slug(self):
+        return slugify(self.nome)
+
+
+class Download(models.Model):
+    album = models.ForeignKey(Album)
+    titulo = models.CharField(max_length=100, verbose_name='Título')
+    data = models.DateTimeField(auto_now_add=True,editable=False)
+    descricao = models.CharField(max_length=140, blank=True, null=True, verbose_name='Descrição')
+    arquivo = FileField(upload_to=upload_to_download, max_length=255, verbose_name=u'Arquivo')
+
+    def __unicode__(self):
+        return u'%s' % (self.titulo)
+
+    def get_extensao(self):
+        return self.arquivo.path.split('.')[-1]
+
+    def icone_existe(self):
+        extensao = self.arquivo.path.split('.')[-1]
+        try:
+            image = Image.open(os.path.join(STATIC_ROOT, os.path.join('imprensa', os.path.join('images', '%s.png' % extensao))))
+            return True
+        except Exception, e:
+            print e
+            return False
+
 
 class News(models.Model):
     class Meta:
