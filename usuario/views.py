@@ -32,6 +32,7 @@ def register(request):
             form = CadastroForm()
             data['message'] = 'Cadastro realizado com sucesso.'
             data['spam'] = 'Aguarde a aprovação do administrador.'
+            data['detail'] = 'Seu cadastro foi concluído com sucesso. A partir de agora, o acompanhamento do seu condomínio ficará mais ágil e prático.'
             return render_to_response("message.html", {'data':data},
                                       context_instance=RequestContext(request))
         else:

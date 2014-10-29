@@ -4,7 +4,7 @@
 {% block slider %}
     <div class="container add-bottom_2">
         <div class="sixteen columns add-bottom">
-            <h1>Cadastro<span>Exclusivo para condôminos. O cadastro será avaliado pelo o Administrador. Aguarde a confirmação no email.</span></h1>
+            <h1>Cadastro<span>Exclusivo para condôminos. O cadastro será avaliado pelo o Administrador.</span></h1>
         </div>
         <div class="sixteen columns ">
             <div class=" sixteen columns alpha">
@@ -33,7 +33,7 @@
                             <div class="{% if form.cpf.errors %} error_message {% endif %}">
                                 {{ form.cpf.errors }}
                                 <label>CPF</label>
-                                {{ form.cpf }}
+                                <input id="cpf" tabindex="1" type="text" value="{{ form.cpf }}">
                             </div>
                         </fieldset>
                     </div>
@@ -60,7 +60,7 @@
                             <div class="{% if form.telefone.errors %} error_message {% endif %}">
                                 {{ form.telefone.errors }}
                                 <label>Telefone</label>
-                                {{ form.telefone }}
+                                <input id="phone" tabindex="1" type="text" value="{{ form.telefone }}">
                             </div>
 
                         </fieldset>

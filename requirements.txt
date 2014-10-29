@@ -6,6 +6,5 @@ django-thumbnail==11.13
 pip==1.5.6
 pyDatalog==0.14.6
 setuptools==1.1.5
-sorl-thumbnail=11.12
-virtual-env==1.11.6
+sorl-thumbnail==11.12
 wsgiref==0.1.2
