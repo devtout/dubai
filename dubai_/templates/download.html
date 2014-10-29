@@ -5,15 +5,35 @@
 {% block slider %}
     <div class="container">
         <div class="sixteen columns add-bottom">
-            <h1>Download</h1>
+            <h1>Download<span>Tenha os arquivos do seu condomínio com maior facilidade.</span></h1>
         </div>
-        <section class="sixteen columns">
-            <h3>Galeria</h3>
-            <p>Fotos dos melhores momentos do condomínio Dubai Residence. </p>
-        </section>
-        <div class="add-bottom">
-
-            <br class="clear">
-        </div>
+        <div class="eleven columns">
+            {% for d in download %}
+                <!-- start room -->
+                <div class="four columns picture alpha">
+                    {% if d.get_extensao == 'pdf' %}
+                        <a href={{ MEDIA_URL }}{{ d.arquivo }} ><img src="{% static "img/pdf-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
+                    {% elif d.get_extensao == 'xls' %}
+                        <a href={{ MEDIA_URL }}{{ d.arquivo }} ><img src="{% static "img/excel-xls-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
+                    {% elif d.get_extensao == 'png' %}
+                        <a href={{ MEDIA_URL }}{{ d.arquivo }} > <img src="{% static "img/png-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
+                    {% elif d.get_extensao == 'word' %}
+                        <a href={{ MEDIA_URL }}{{ d.arquivo }} ><img src="{% static "img/word-doc-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
+                    {% elif d.get_extensao == 'zip' %}
+                        <a href={{ MEDIA_URL }}{{ d.arquivo }} ><img src="{% static "img/zip-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
+                    {% elif d.get_extensao == 'jpg' %}
+                        <a href={{ MEDIA_URL }}{{ d.arquivo }} > <img src="{% static "img/jpg-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
+                    {% elif d.get_extensao == 'ppt' %}
+                        <a href={{ MEDIA_URL }}{{ d.arquivo }} ><img src="{% static "img/ppt-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
+                    {% endif %}
+                </div>
+                <div class="seven columns omega">
+                    <h3>{{ d.titulo }}<span> {{ d.data }}</span></h3>
+                    <p>{{ d.descricao }}</p>
+                    <br class="clear add-bottom"/>
+                </div><!-- end  room-->
+                <hr>
+            {% endfor %}
+        </div><!-- end column left - rooms list -->
     </div>
 {% endblock %}

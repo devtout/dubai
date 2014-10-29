@@ -4,7 +4,7 @@
 {% block slider %}
     <div class="container">
         <div class="sixteen columns add-bottom">
-            <h1>Condomínio Dubai Residence<span>Lorem ipsum dolor sit amet, per ne purto corpora, cu eam cetero dolores.</span></h1>
+            <h1>Notícias<span>Acompanhe os últimos avisos e notícias do Condomínio Dubai Residence.</span></h1>
         </div>
 
         <div class="ten columns add-bottom">
@@ -28,7 +28,7 @@
                     {% endthumbnail %}
                 </div>
                 <br class="clear">
-                <p>{{ last_new.texto }}</p>
+                <p>{{ last_new.texto|safe|truncatechars:140 }}</p>
                 <a href="/news/{{ last_new.slug }}/" class="button">Saiba mais</a>
             {% endfor %}
         </div>
