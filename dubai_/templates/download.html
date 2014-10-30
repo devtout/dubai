@@ -35,5 +35,19 @@
                 <hr>
             {% endfor %}
         </div><!-- end column left - rooms list -->
+
+        <!-- start col right -->
+        <section class="five columns omega">
+            <div class="facilities_desc add-bottom_2">
+                <ul>
+                    {% for a in album %}
+                        <li>
+                            <a href="/download/{{ a.id }}/" > <h5>{{ a.nome }}</h5></a>
+                            <p>{{ a.descricao|safe|truncatechars:28 }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div><!-- end facilities desc-->
+        </section><!-- end col right -->
     </div>
 {% endblock %}

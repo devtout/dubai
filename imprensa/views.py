@@ -26,4 +26,4 @@ def album(request):
 
 
 def download(request, id):
-    return render_to_response("download.html", {'download': Download.objects.all().filter(album=id).order_by('-id')}, context_instance=RequestContext(request))
+    return render_to_response("download.html", {'download': Download.objects.all().filter(album=id).order_by('-id'), 'album': Album.objects.all().filter(tipo='1').order_by('-id')[:3]}, context_instance=RequestContext(request))
