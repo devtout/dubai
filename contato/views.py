@@ -1,9 +1,11 @@
 # -*- coding:utf-8-*-
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from contato.form import OccurrenceForm
 from contato.models import Occurrence
+from dubai.settings import EMAIL_HOST_USER
 from dubai_.forms import ContatoForm, Contato
 from usuario.models import Condomino
 
@@ -46,6 +48,8 @@ def occurrence(request):
             occurrence.save()
             form = OccurrenceForm()
             data['message'] = 'Ocorrência realizada com sucesso.'
+            send_mail('Ocorrencia - ' + occurrence.condomino.first_name + ' '+occurrence.ocorrencia, occurrence.mensagem , EMAIL_HOST_USER,
+                 ['renan@e-tout.com.br',], fail_silently=False)
             return render_to_response('message.html', {'data': data}, context_instance=RequestContext(request))
         else:
             data['erro'] = 'Erro'
