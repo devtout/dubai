@@ -33,7 +33,7 @@
                             <div class="{% if form.cpf.errors %} error_message {% endif %}">
                                 {{ form.cpf.errors }}
                                 <label>CPF</label>
-                                <input id="cpf" tabindex="1" type="text" value="{{ form.cpf }}">
+                                {{ form.cpf }}
                             </div>
                         </fieldset>
                     </div>
@@ -60,7 +60,7 @@
                             <div class="{% if form.telefone.errors %} error_message {% endif %}">
                                 {{ form.telefone.errors }}
                                 <label>Telefone</label>
-                                <input id="phone" tabindex="1" type="text" value="{{ form.telefone }}">
+                                {{ form.telefone }}
                             </div>
 
                         </fieldset>

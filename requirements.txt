@@ -1,7 +1,6 @@
 Django==1.6
 Pillow==2.6.0
 argparse==1.2.1
-bootstrap-admin==0.3.0
 django-thumbnail==11.13
 pip==1.5.6
 pyDatalog==0.14.6

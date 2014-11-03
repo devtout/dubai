@@ -25,6 +25,8 @@
                         <a href={{ MEDIA_URL }}{{ d.arquivo }} > <img src="{% static "img/jpg-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
                     {% elif d.get_extensao == 'ppt' %}
                         <a href={{ MEDIA_URL }}{{ d.arquivo }} ><img src="{% static "img/ppt-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
+                    {% else %}
+                        <a href={{ MEDIA_URL }}{{ d.arquivo }} ><img src="{% static "img/unknown-icon.png"%}" alt="" class="scale-with-grid"></a><em></em>
                     {% endif %}
                 </div>
                 <div class="seven columns omega">
@@ -34,6 +36,16 @@
                 </div><!-- end  room-->
                 <hr>
             {% endfor %}
+            {% if not download %}
+                <!-- start room -->
+                <div class="four columns picture alpha">
+                    <img src="{% static "img/pdf-icon.png"%}" alt="" class="scale-with-grid"><em></em>
+                </div>
+                <div class="seven columns omega">
+                    <h3>Atenção<span>Não há arquivos para download nessa pasta.</span></h3>
+                    <br class="clear add-bottom"/>
+                </div><!-- end  room-->
+            {% endif %}
         </div><!-- end column left - rooms list -->
 
         <!-- start col right -->

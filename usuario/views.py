@@ -53,7 +53,6 @@ def login_view(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                print 'Login efetuado com sucesso'
                 data = {}
                 data['message'] = 'Login Efetuado com Sucesso.'
                 data['spam'] = request.user.username
@@ -75,5 +74,5 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     data = {}
-    data['message'] = 'Obrigado por utilizar o Dubai Residence.'
+    data['message'] = 'Logoff efetuado com sucesso.'
     return render_to_response('message.html', {'data': data}, context_instance=RequestContext(request))

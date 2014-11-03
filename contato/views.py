@@ -1,3 +1,4 @@
+# -*- coding:utf-8-*-
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -41,8 +42,12 @@ def occurrence(request):
             occurrence.condomino = Condomino.objects.get(username=request.user.username)
             occurrence.ocorrencia = form.cleaned_data['ocorrencia']
             occurrence.mensagem = form.cleaned_data['mensagem']
+            occurrence.obsercacao
             occurrence.save()
             form = OccurrenceForm()
+            data['message'] = 'Ocorrência realizada com sucesso.'
+            return render_to_response('message.html', {'data': data}, context_instance=RequestContext(request))
         else:
             data['erro'] = 'Erro'
+            return render_to_response("occurrence.html", {'form':form}, context_instance=RequestContext(request))
     return render_to_response("occurrence.html", {'form':form}, context_instance=RequestContext(request))
