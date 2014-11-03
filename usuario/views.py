@@ -1,5 +1,7 @@
 # -*- coding:utf-8-*-
 from django.contrib.auth.hashers import make_password
+from django.core.mail import send_mail
+from dubai.settings import EMAIL_HOST_USER
 from usuario.models import Condomino
 from usuario.forms import CadastroForm, AuthenticationForm
 from django.template import RequestContext
@@ -56,6 +58,7 @@ def login_view(request):
                 data = {}
                 data['message'] = 'Login Efetuado com Sucesso.'
                 data['spam'] = request.user.username
+                send_mail('Solicitação de Cadastro', 'Senhor Administrador, \n Há um usuário cadastrado no Condomínio Dubai Residence. Por Favor, verifique a veracidade das informações e ative.', EMAIL_HOST_USER, ['renan.rasc@gmail.com.br',], fail_silently=False)
                 # Redireciona para a pagina de sucesso.
                 return render_to_response('message.html', {'data': data}, context_instance=RequestContext(request))
             else:

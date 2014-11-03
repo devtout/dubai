@@ -48,8 +48,11 @@ def occurrence(request):
             occurrence.save()
             form = OccurrenceForm()
             data['message'] = 'Ocorrência realizada com sucesso.'
-            send_mail('Ocorrencia - ' + occurrence.condomino.first_name + ' '+occurrence.ocorrencia, occurrence.mensagem , EMAIL_HOST_USER,
-                 ['renan@e-tout.com.br',], fail_silently=False)
+            send_mail('['+occurrence.condomino.get_bloco_display() + ' - ' + occurrence.condomino.numero + '] ' +
+                      occurrence.ocorrencia, occurrence.mensagem + '\n\n' + occurrence.condomino.first_name + ' ' +
+                      occurrence.condomino.last_name + ' - ' + occurrence.condomino.get_status_morador_display() + '\n' + occurrence.condomino.email + '\n' +
+                      occurrence.condomino.telefone, EMAIL_HOST_USER,
+                      ['wrnunesneto@gmail.com',], fail_silently=False)
             return render_to_response('message.html', {'data': data}, context_instance=RequestContext(request))
         else:
             data['erro'] = 'Erro'

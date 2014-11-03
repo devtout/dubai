@@ -165,11 +165,11 @@ LOGGING = {
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'renan.rasc@gmail.com'
-EMAIL_HOST_PASSWORD = 'ASHUuhsa89'
+EMAIL_HOST_USER = 'condominodubai@gmail.com'
+EMAIL_HOST_PASSWORD = '4Dm.dub41'
 DEFAULT_FROM_EMAIL = ''
 
-try:
-    from settings_local import *
-except ImportError:
-    pass
+#try:
+#    from settings_local import *
+#except ImportError:
+#    pass
