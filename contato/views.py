@@ -52,7 +52,7 @@ def occurrence(request):
                       occurrence.ocorrencia, occurrence.mensagem + '\n\n' + occurrence.condomino.first_name + ' ' +
                       occurrence.condomino.last_name + ' - ' + occurrence.condomino.get_status_morador_display() + '\n' + occurrence.condomino.email + '\n' +
                       occurrence.condomino.telefone, EMAIL_HOST_USER,
-                      ['wrnunesneto@gmail.com',], fail_silently=False)
+                      ['ocorrencias@condominiodubai.com.br',], fail_silently=False)
             return render_to_response('message.html', {'data': data}, context_instance=RequestContext(request))
         else:
             data['erro'] = 'Erro'

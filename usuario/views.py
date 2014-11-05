@@ -36,7 +36,7 @@ def register(request):
             data['message'] = 'Cadastro realizado com sucesso.'
             data['spam'] = 'Aguarde a aprovação do administrador.'
             data['detail'] = 'Seu cadastro foi concluído com sucesso. A partir de agora, o acompanhamento do seu condomínio ficará mais ágil e prático.'
-            send_mail('Solicitação de Cadastro', 'Senhor Administrador, \n\nHá um usuário cadastrado no Condomínio Dubai Residence esperando sua aprovação. Por Favor, verifique a veracidade das informações.', EMAIL_HOST_USER, ['renan.rasc@gmail.com',], fail_silently=False)
+            send_mail('Solicitação de Cadastro', 'Senhor Administrador, \n\nHá um usuário cadastrado no Condomínio Dubai Residence esperando sua aprovação. Por Favor, verifique a veracidade das informações.', EMAIL_HOST_USER, ['gerente@condominiodubai.com.br', 'wrnunesneto@gmail.com'], fail_silently=False)
             return render_to_response("message.html", {'data':data},
                                       context_instance=RequestContext(request))
         else:
