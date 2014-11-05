@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
+from encodings.punycode import selective_find
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models.signals import post_save
+from dubai.settings import EMAIL_HOST_USER
+from django.core.mail import send_mail
 
 
 class Condomino(User):
@@ -25,3 +29,12 @@ class Condomino(User):
 
     def __unicode__(self):
         return (self.first_name)
+
+
+def send_mail_condomino(sender, instance, **kwargs):
+    if instance.is_active:
+        email = instance.email
+        send_mail('Solicitação de Cadastro', 'O seu cadastro foi aprovado. Agora você já pode utilizar os serviços do DUBAI RESIDENCE através do site www.condominiodubai.com.br.', EMAIL_HOST_USER, [email,], fail_silently=False)
+
+
+post_save.connect(send_mail_condomino, sender=Condomino)

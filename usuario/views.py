@@ -1,4 +1,5 @@
 # -*- coding:utf-8-*-
+from __builtin__ import open
 from django.contrib.auth.hashers import make_password
 from django.core.mail import send_mail
 from dubai.settings import EMAIL_HOST_USER
@@ -35,6 +36,7 @@ def register(request):
             data['message'] = 'Cadastro realizado com sucesso.'
             data['spam'] = 'Aguarde a aprovação do administrador.'
             data['detail'] = 'Seu cadastro foi concluído com sucesso. A partir de agora, o acompanhamento do seu condomínio ficará mais ágil e prático.'
+            send_mail('Solicitação de Cadastro', 'Senhor Administrador, \n\nHá um usuário cadastrado no Condomínio Dubai Residence esperando sua aprovação. Por Favor, verifique a veracidade das informações.', EMAIL_HOST_USER, ['renan.rasc@gmail.com',], fail_silently=False)
             return render_to_response("message.html", {'data':data},
                                       context_instance=RequestContext(request))
         else:
@@ -58,7 +60,6 @@ def login_view(request):
                 data = {}
                 data['message'] = 'Login Efetuado com Sucesso.'
                 data['spam'] = request.user.username
-                send_mail('Solicitação de Cadastro', 'Senhor Administrador, \n Há um usuário cadastrado no Condomínio Dubai Residence. Por Favor, verifique a veracidade das informações e ative.', EMAIL_HOST_USER, ['renan.rasc@gmail.com.br',], fail_silently=False)
                 # Redireciona para a pagina de sucesso.
                 return render_to_response('message.html', {'data': data}, context_instance=RequestContext(request))
             else:
