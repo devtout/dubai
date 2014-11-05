@@ -5,3 +5,4 @@ pyDatalog==0.14.6
 setuptools==1.1.5
 wsgiref==0.1.2
 psycopg2==2.5.4
+sorl-thumbnail==11.12.1b
