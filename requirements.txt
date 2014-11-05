@@ -1,4 +1,3 @@
-Pillow==2.6.0
 argparse==1.2.1
 django-thumbnail==11.13
 pyDatalog==0.14.6
